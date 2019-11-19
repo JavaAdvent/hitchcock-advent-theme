@@ -795,24 +795,4 @@ if ( ! function_exists( 'hitchcock_block_editor_styles' ) ) :
 
 endif;
 
-/* ---------------------------------------------------------------------------------------------
-   JavaAdvent Customisations
-   --------------------------------------------------------------------------------------------- */
-if ( ! function_exists( 'hitchcock_current_year_articles' ) ):
-
-	function hitchcock_current_year_articles( $numberOfPosts = 30 ) {
-		$args = array(
-			'posts_per_page'  => $numberOfPosts,
-			'post_type'       => 'post',
-			'post_status'     => 'publish',
-			'date_query' => array(
-				array(
-					'year' => date( 'Y' ),
-				),
-			),
-		);
-		return get_posts( $args );
-	}
-endif;
-
 ?>

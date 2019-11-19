@@ -65,29 +65,27 @@
 		</div><!-- .page-title -->
 	
 	<?php endif; ?>
-		
-	<?php 
-		if ( ! is_search() ):
-			$posts = hitchcock_current_year_articles();
-			if ( count($posts) > 0 ):
+
+	<?php
+		// JavaAdvent Customisation to limit view to this years
+		if ( ! is_search() ) {
+			$args = array(
+				'posts_per_page'  => '-1',
+				'post_type'       => 'post',
+				'post_status'     => 'publish',
+				'date_query' => array(
+						array(
+								'year' => date( 'Y' ),
+						),
+				),
+			);
+
+			query_posts($args);
+		}
 	?>
-				<div class="posts" id="posts">
 
-					<?php
-					foreach ( $posts as $post ) {
-					
-						setup_postdata( $post );
-						get_template_part( 'content', get_post_format() );
-						
-					}
-					?>
+	<?php if ( have_posts() ) : ?>
 
-					<div class="clear"></div>
-					
-				</div><!-- .posts -->		
-	<?php 
-			endif;
-		elseif ( is_search() && have_posts() ) : ?>
 		<div class="posts" id="posts">
 
 			<?php
@@ -101,7 +99,9 @@
 			<div class="clear"></div>
 			
 		</div><!-- .posts -->
-	<?php elseif ( is_search() ): ?>
+
+	<?php elseif ( is_search() ) : ?>
+
 		<div class="post single">
 		
 			<div class="post-container">
