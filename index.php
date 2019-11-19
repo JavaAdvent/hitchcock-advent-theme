@@ -66,8 +66,28 @@
 	
 	<?php endif; ?>
 		
-	<?php if ( have_posts() ) : ?>
+	<?php 
+		if ( ! is_search() ):
+			$posts = hitchcock_current_year_articles();
+			if ( count($posts) > 0 ):
+	?>
+				<div class="posts" id="posts">
 
+					<?php
+					foreach ( $posts as $post ) {
+					
+						setup_postdata( $post );
+						get_template_part( 'content', get_post_format() );
+						
+					}
+					?>
+
+					<div class="clear"></div>
+					
+				</div><!-- .posts -->
+			endif;
+		endif();
+	<?php elseif ( is_search() && have_posts() ) : ?>
 		<div class="posts" id="posts">
 
 			<?php
@@ -81,9 +101,7 @@
 			<div class="clear"></div>
 			
 		</div><!-- .posts -->
-
-	<?php elseif ( is_search() ) : ?>
-
+	<?php elseif ( is_search() ): ?>
 		<div class="post single">
 		
 			<div class="post-container">
