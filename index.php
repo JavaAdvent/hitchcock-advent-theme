@@ -84,10 +84,10 @@
 
 					<div class="clear"></div>
 					
-				</div><!-- .posts -->
+				</div><!-- .posts -->		
+	<?php 
 			endif;
-		endif();
-	<?php elseif ( is_search() && have_posts() ) : ?>
+		elseif ( is_search() && have_posts() ) : ?>
 		<div class="posts" id="posts">
 
 			<?php
