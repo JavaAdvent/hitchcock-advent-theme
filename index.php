@@ -32,16 +32,16 @@
 
 	<?php
 		// JavaAdvent Customisation to limit view to this years
+        $dateQuery = array("after" => "December 1st last year");
+        if (date('m') == 12) {
+            $dateQuery = array("month" => 12, "year" => date('Y'));
+        }
 		if ( ! is_search() ) {
 			$args = array(
 				'posts_per_page'  => '9',
 				'post_type'       => 'post',
 				'post_status'     => 'publish',
-				'date_query' => array(
-						array(
-								'year' => date( 'Y' ),
-						),
-				),
+				'date_query' => array($dateQuery),
 			);
 
 			query_posts($args);
