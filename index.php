@@ -29,7 +29,25 @@
 		</header><!-- .archive-header -->
 	
 	<?php endif; ?>
-		
+
+	<?php
+		// JavaAdvent Customisation to limit view to this years
+		if ( ! is_search() ) {
+			$args = array(
+				'posts_per_page'  => '-1',
+				'post_type'       => 'post',
+				'post_status'     => 'publish',
+				'date_query' => array(
+						array(
+								'year' => date( 'Y' ),
+						),
+				),
+			);
+
+			query_posts($args);
+		}
+	?>
+
 	<?php if ( have_posts() ) : ?>
 
 		<div class="posts group" id="posts">
