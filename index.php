@@ -38,7 +38,7 @@
         }
 		if ( ! is_search() ) {
 			$args = array(
-				'posts_per_page'  => '9',
+				'posts_per_page'  => '-1',
 				'post_type'       => 'post',
 				'post_status'     => 'publish',
 				'date_query' => array($dateQuery),
