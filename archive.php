@@ -44,7 +44,7 @@ get_header(); ?>
     <?php endif; ?>
 
     <!-- Navigation -->
-    <?php hitchcock_archive_navigation(); ?>
+    <?php get_template_part( 'pagination' ); ?>
     <!-- /Navigation -->
 
 </div>
