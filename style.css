@@ -2651,3 +2651,16 @@ img#wpstats {
 	vertical-align: middle;
 	margin-right: 0.17em;
 }
+
+.archive-post-author {
+	color: #757575;
+	font-size: 0.875em;
+	font-weight: 600;
+	letter-spacing: .015em;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.has-post-thumbnail .archive-post-author {
+	color: rgba( 255, 255, 255, 0.5 );
+}

@@ -22,7 +22,8 @@ $style_attr = $thumbnail_url ? ' style="background-image: url( ' . $thumbnail_ur
 		    <?php if ( get_the_title() ) : ?>
 		    	<h2 class="archive-post-title"><?php the_title(); ?></h2>
 		    <?php endif; ?>
-	    
+
+            <p class="archive-post-author">By: <?= get_the_author(); ?></p>
 		</div>
 
 	</div>
